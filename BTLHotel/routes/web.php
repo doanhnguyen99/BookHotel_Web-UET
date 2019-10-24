@@ -26,3 +26,18 @@ Route::get('/login', function() {
 Route::get('/register', function() {
     return view('page.register');
 });
+Route::get('/profileuser', function() {
+    return view('user.profileuser');
+});
+Route::get('index', function() {
+    return view('page.index');
+});
+Route::get('blog', function() {
+     return view('page.blog');
+});
+Route::get('room', function() {
+     return view('page.room');
+});
+Route::get('quanly', function() {
+    return view('admin.dashboard');
+});

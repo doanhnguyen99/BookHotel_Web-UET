@@ -110,7 +110,7 @@ nav a{
 /*phần header*/
 .header{
 	min-height:100vh;
-	background-color: #fb929e; 
+	background-color: #fb929e;
 	display: flex;
 
 }
@@ -135,7 +135,7 @@ nav a{
 }
 .header .h-contain-text h1{
 	font-size: 60px;
-	margin-top:18px; 
+	margin-top:18px;
 	color: #fff;
 	font-weight: 700;
 	z-index: 500;
@@ -184,4 +184,8 @@ nav a{
 }
 .header .h-right .owl-dots .owl-dot.active {
     background-color: dimgrey;
+}
+.ul-user{
+    display: none;
+    transition-delay: 2s;
 }

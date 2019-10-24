@@ -1,14 +1,7 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="css/blog.css">
-        <title>Blog</title>
-    </head>
-    <body>
-    <div class="blog-background" style="height: 576px; background-image: url('images/bg_3.jpg');">
+
+@extends('master')
+@section('content')
+<div class="blog-background" style="height: 576px; background-image: url('source/image/bg_3.jpg');">
         <div class="blog">
             <h1>Blog</h1>
             <a href="#">HOME</a>
@@ -21,47 +14,47 @@
                 <div class="container" style="margin-bottom: -30px">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="blog-background" style="height: 275px; background-image: url('images/blog/image_1.jpg');"></div>
+                            <div class="blog-background" style="height: 275px; background-image: url('source/image/blog/image_1.jpg');"></div>
                             <div>
                                 <h3 class="heading">Even the all-powerful Pointing has no control about the blind texts</h3>
                             </div>
                             <div class="meta-chart">
                                 <div><a href="#">Sep.20, 2018</a></div>
                                 <div><a href="#">Admin</a></div>
-                                <div><img src="images/icons/message.svg" /><a style="margin-left: 5px;" href="#">3</a></div>
+                                <div><img src="source/image/icons/message.svg" /><a style="margin-left: 5px;" href="#">3</a></div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="blog-background" style="height: 275px; background-image: url('images/blog/image_2.jpg');"></div>
+                            <div class="blog-background" style="height: 275px; background-image: url('source/image/blog/image_2.jpg');"></div>
                             <div>
                                 <h3 class="heading">Even the all-powerful Pointing has no control about the blind texts</h3>
                             </div>
                             <div class="meta-chart">
                                 <div><a href="#">Sep.20, 2018</a></div>
                                 <div><a href="#">Admin</a></div>
-                                <div><img src="images/icons/message.svg" /><a style="margin-left: 5px;" href="#">3</a></div>
+                                <div><img src="source/image/icons/message.svg" /><a style="margin-left: 5px;" href="#">3</a></div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="blog-background" style="height: 275px; background-image: url('images/blog/image_3.jpg');"></div>
+                            <div class="blog-background" style="height: 275px; background-image: url('source/image/blog/image_3.jpg');"></div>
                             <div>
                                 <h3 class="heading">Even the all-powerful Pointing has no control about the blind texts</h3>
                             </div>
                             <div class="meta-chart">
                                 <div><a href="#">Sep.20, 2018</a></div>
                                 <div><a href="#">Admin</a></div>
-                                <div><img src="images/icons/message.svg" /><a style="margin-left: 5px;" href="#">3</a></div>
+                                <div><img src="source/image/icons/message.svg" /><a style="margin-left: 5px;" href="#">3</a></div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="blog-background" style="height: 275px; background-image: url('images/blog/image_4.jpg');"></div>
+                            <div class="blog-background" style="height: 275px; background-image: url('source/image/blog/image_4.jpg');"></div>
                             <div>
                                 <h3 class="heading">Even the all-powerful Pointing has no control about the blind texts</h3>
                             </div>
                             <div class="meta-chart">
                                 <div><a href="#">Sep.20, 2018</a></div>
                                 <div><a href="#">Admin</a></div>
-                                <div><img src="images/icons/message.svg" /><a style="margin-left: 5px;" href="#">3</a></div>
+                                <div><img src="source/image/icons/message.svg" /><a style="margin-left: 5px;" href="#">3</a></div>
                             </div>
                         </div>
                     </div>
@@ -80,8 +73,8 @@
             </div>
             <div class="col-lg-4">
                 <div class="container">
-                    <form class="form-blog">
-                        <input type="text" placeholder="Type a keyword and hit enter" /><img src="images/icons/search.svg"></img>
+                    <form>
+                        <input type="text" placeholder="Type a keyword and hit enter" /><img src="source/image/icons/search.svg"></img>
                     </form>
                     <div>
                         <h3>Categories</h3>
@@ -94,35 +87,35 @@
                     </div>
                     <h3 style="margin-bottom: 40px;">Popular artiles</h3>
                     <div class="popular-blog">
-                        <div><img class="img-title" src="images/blog/image_1.jpg"/></div>
+                        <div><img class="img-title" src="source/image/blog/image_1.jpg"/></div>
                         <div>
                             <span>Even the all-powerful Pointing has no control about the blind texts<br/></span>
                             <div class="infor-blog">
-                                <img src="images/icons/calendar.svg" /><a href="#">Oct. 04. 2018</a>
-                                <img src="images/icons/user.svg" /><a href="#">Dave lewis</a>
-                                <img src="images/icons/message.svg" /><a href="#">5</a>
+                                <img src="source/image/icons/calendar.svg" /><a href="#">Oct. 04. 2018</a>
+                                <img src="source/image/icons/user.svg" /><a href="#">Dave lewis</a>
+                                <img src="source/image/icons/message.svg" /><a href="#">5</a>
                             </div>
                         </div>
                     </div>
                     <div class="popular-blog">
-                        <div><img class="img-title" src="images/blog/image_2.jpg"/></div>
+                        <div><img class="img-title" src="source/image/blog/image_2.jpg"/></div>
                         <div>
                             <span>Even the all-powerful Pointing has no control about the blind texts<br/></span>
                             <div class="infor-blog">
-                                <img src="images/icons/calendar.svg" /><a href="#">Oct. 04. 2018</a>
-                                <img src="images/icons/user.svg" /><a href="#">Dave lewis</a>
-                                <img src="images/icons/message.svg" /><a href="#">5</a>
+                                <img src="source/image/icons/calendar.svg" /><a href="#">Oct. 04. 2018</a>
+                                <img src="source/image/icons/user.svg" /><a href="#">Dave lewis</a>
+                                <img src="source/image/icons/message.svg" /><a href="#">5</a>
                             </div>
                         </div>
                     </div>
                     <div class="popular-blog">
-                        <div><img class="img-title" src="images/blog/image_3.jpg"/></div>
+                        <div><img class="img-title" src="source/image/blog/image_3.jpg"/></div>
                         <div>
                             <span>Even the all-powerful Pointing has no control about the blind texts<br/></span>
                             <div class="infor-blog">
-                                <img src="images/icons/calendar.svg" /><a href="#">Oct. 04. 2018</a>
-                                <img src="images/icons/user.svg" /><a href="#">Dave lewis</a>
-                                <img src="images/icons/message.svg" /><a href="#">5</a>
+                                <img src="source/image/icons/calendar.svg" /><a href="#">Oct. 04. 2018</a>
+                                <img src="source/image/icons/user.svg" /><a href="#">Dave lewis</a>
+                                <img src="source/image/icons/message.svg" /><a href="#">5</a>
                             </div>
                         </div>
                     </div>
@@ -130,5 +123,4 @@
             </div>
         </div>
     </div>
-    </body>
-</html>
+@endsection

@@ -13,7 +13,7 @@
                     <label for="">Pasword</label>
                 </div>
                 <button type="submit">Login</button>
-                <a class="btn btn-block" id="forgetpass" >Forget your accout</a>
+                <a class="btn btn-block" id="forgetpass" onclick="changeForgetPass()" >Forget your accout</a>
                 <div>
                     <span>Don't have account? </span>
                     <a href="register">Sign Up</a>
