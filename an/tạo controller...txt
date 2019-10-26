@@ -1,0 +1,9 @@
+﻿resource-view chứa các file .blade.php
+
+public chứa các file nguồn : css. html. js....
+
+tạo controller
+php artisan make:controller Controllername
+
+tạo middleware
+php artisan make:middleware middlewareName
