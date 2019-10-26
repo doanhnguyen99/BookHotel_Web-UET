@@ -1,43 +1,23 @@
 <?php
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('welcome');
+//public route
+Route::get('/','publicPage@index');
+Route::get('/about','publicPage@about');
+Route::get('/booking_form','publicPage@booking');
+Route::get('/login','publicPage@login')->name('login');
+Route::get('/register','publicPage@register');
+Route::get('/blog','publicPage@blog');
+Route::get('/room','publicPage@room');
+//route admin
+Route::group(['prefix'=>'quanly','middleware'=>'adminLogin'],function(){
+    Route::get('/', function() {
+        return view('admin.dashboard');
+    });
 });
-Route::get('/about', function() {
-    return view('page.about');
+//route user
+Route::group(['prefix'=>'user','middleware'=>'userLogin'],function(){
+    Route::get('/profile', function() {
+        return view('user.profileuser');
+    });
 });
-Route::get('/booking_form', function() {
-    return view('page.booking');
-});
-Route::get('/login', function() {
-    return view('page.login');
-});
-Route::get('/register', function() {
-    return view('page.register');
-});
-Route::get('/profileuser', function() {
-    return view('user.profileuser');
-});
-Route::get('index', function() {
-    return view('page.index');
-});
-Route::get('blog', function() {
-     return view('page.blog');
-});
-Route::get('room', function() {
-     return view('page.room');
-});
-Route::get('quanly', function() {
-    return view('admin.dashboard');
-});
+//login hander,when login success, session setted with variable 'login'
+Route::post('dangnhap','UserController@login')->name('dangnhap');

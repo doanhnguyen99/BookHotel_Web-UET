@@ -28,6 +28,7 @@ nav a{
 	justify-content: space-evenly;
 	width: 60%;
 	list-style-type: none;
+	margin-top: 10px;
 }
 .nav-links a{
 	color: white;
@@ -132,6 +133,7 @@ nav a{
 	display: flex;
 	flex-direction: column;
     justify-content: center;
+    z-index: 5;
 }
 .header .h-contain-text h1{
 	font-size: 60px;

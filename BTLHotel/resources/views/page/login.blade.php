@@ -2,14 +2,15 @@
 @section('content')
 <div class="box">
         <div class="box-in-box">
-            <form action="" id="formlogin">
+            <form action="{{route('dangnhap')}}" id="formlogin" method="post">
+                {{csrf_field()}}
                 <h2>Login</h2>
                 <div class="inputBox">
-                    <input type="text" name="" required>
+                    <input type="text" name="username" required>
                     <label for="">Username</label>
                 </div>
                 <div class="inputBox">
-                    <input type="password" name="" required>
+                    <input type="password" name="password" required>
                     <label for="">Pasword</label>
                 </div>
                 <button type="submit">Login</button>
@@ -22,7 +23,7 @@
             <form action="" id="formforgetpass" hidden="">
                 <h2>Forget Password</h2>
                 <div class="inputBox">
-                    <input type="email" name="" required>
+                    <input type="email" name="email" required>
                     <label for="">Email</label>
                 </div>
                 <button type="submit">Get Password</button>
