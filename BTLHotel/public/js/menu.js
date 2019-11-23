@@ -30,7 +30,7 @@ window.addEventListener('scroll',()=>{
         let scrolled=window.scrollY;
         let nav=document.querySelector('nav');
         nav.classList.add('scrolled-header');
-        if(scrolled<625){
+        if(scrolled<555){
             nav.classList.remove('scrolled-header');
         }
 })
