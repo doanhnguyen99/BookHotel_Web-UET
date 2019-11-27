@@ -4,20 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <base href="{{ asset('') }}">
-    <link rel="stylesheet" href="library/carousel/owl.carousel.css">
-    <link rel="stylesheet" href="library/carousel/owl.theme.default.css">
-    <link rel="stylesheet" href="library/carousel/animate.css">
-    <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="library/boostrap/bootstrap.min.css">
-    <link rel="stylesheet" href="library/boostrap/bootstrap.css">
-    <link rel="stylesheet" href="library/boostrap/font-awesome.css">
+    @php
+        $path = url('').'/';
+    @endphp
+    <link rel="stylesheet" href="{{ $path }}library/carousel/owl.carousel.css">
+    <link rel="stylesheet" href="{{ $path }}library/carousel/owl.theme.default.css">
+    <link rel="stylesheet" href="{{ $path }}library/carousel/animate.css">
+    <link rel="stylesheet" href="{{ $path }}css/menu.css">
+    <link rel="stylesheet" href="{{ $path }}library/boostrap/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ $path }}library/boostrap/bootstrap.css">
+    <link rel="stylesheet" href="{{ $path }}library/boostrap/font-awesome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/blog.css">
-    <link rel="stylesheet" href="css/room.css">
+    <link rel="stylesheet" href="{{ $path }}css/footer.css">
+    <link rel="stylesheet" href="{{ $path }}css/login.css">
+    <link rel="stylesheet" href="{{ $path }}css/index.css">
+    <link rel="stylesheet" href="{{ $path }}css/blog.css">
+    <link rel="stylesheet" href="{{ $path }}css/room.css">
 
     <style type="text/css">
         h2.about{
@@ -34,7 +36,7 @@
             width: 100%;
             padding: 40px;
             overflow: hidden;
-            background-image: url('upload/bgr-bookingform.jpg');
+            background-image: url('{{ $path }}upload/bgr-bookingform.jpg');
             background-size: cover;
             border-radius: 5px;
             z-index: 20;
@@ -63,13 +65,13 @@
     @yield('content')
     </div> <!-- .container -->
      @include('footer')
-    <script src="library/jquery-3.4.1.js"></script>
-    <script src="library/carousel/owl.carousel.js"></script>
-    <script src="js/menu.js"></script>
-    <script src="js/login.js"></script>
-    <script src="library/boostrap/jquery-3.3.1.slim.min.js"></script>
-    <script src="library/boostrap/popper.min.js"></script>
+    <script src="{{ $path }}library/jquery-3.4.1.js"></script>
+    <script src="{{ $path }}library/carousel/owl.carousel.js"></script>
+    <script src="{{ $path }}js/menu.js"></script>
+    <script src="{{ $path }}js/login.js"></script>
+    <script src="{{ $path }}library/boostrap/jquery-3.3.1.slim.min.js"></script>
+    <script src="{{ $path }}library/boostrap/popper.min.js"></script>
     {{-- <script src="library/boostrap/bootstrap.min.js"></script> --}}
-    <script src="library/boostrap/bootstrap.js"></script>
+    <script src="{{ $path }}library/boostrap/bootstrap.js"></script>
 </body>
 </html>

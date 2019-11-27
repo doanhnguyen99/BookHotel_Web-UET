@@ -48,28 +48,29 @@
             <div class="col-12 col-md-4">
                 <div class="feedback">
                     <h5 class="text-primary">Feedback</h5><br>
-                    <form class="border-info ">
+                    <form class="border-info" action="{{ route('feedback')}}" method="post">
+                        {{csrf_field()}}
                       <div class="input-group mb-1">
                               <div class="input-group-prepend">
                                 <span class="input-group-text border border-primary text-primary">Name</span>
                               </div>
-                              <input type="text" class="form-control border border-primary" required>
+                              <input type="text" class="form-control border border-primary" name="name" required>
                        </div>
                         <div class="input-group mb-1">
                               <div class="input-group-prepend">
                                 <span class="input-group-text border border-primary text-primary">Email&nbsp;</span>
                               </div>
-                              <input type="text" class="form-control border border-primary" required>
+                              <input type="text" class="form-control border border-primary" name="email" required>
                        </div>
                         <div class="input-group mb-1">
                               <div class="input-group-prepend">
                                 <span class="input-group-text border border-primary text-primary">Phone</span>
                               </div>
-                              <input type="text" class="form-control border border-primary" required>
+                              <input type="text" class="form-control border border-primary" name="phone" required>
                        </div>
 
                        <div class="input-group">
-                          <textarea class="form-control border border-primary" placeholder="Message" required></textarea>
+                          <textarea class="form-control border border-primary" placeholder="Message" name="message" required></textarea>
                         </div>
 
                       <button type="submit" class="btn btn-outline-primary" style="position: absolute;">

@@ -7,23 +7,23 @@
             </div>
         </a>
         <ul class="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="about">About</a></li>
-            <li><a href="blog">Blog</a></li>
-            <li><a href="room">Room</a></li>
-            <li><a href="booking_form">Booking</a></li>
+            <li><a href="{{ $path }}index">Home</a></li>
+            <li><a href="{{ $path }}about">About</a></li>
+            <li><a href="{{ $path }}blog">Blog</a></li>
+            <li><a href="{{ $path }}room">Room</a></li>
+            <li><a href="{{ $path }}user/booking_form">Booking</a></li>
 
             <li class="li-user">
-                <a href="login">admin</a>
+                <a href="{{ $path }}login">admin</a>
                 <ul class="ul-user">
-                    <li><a href="quanly">Quan ly</a></li>
+                    <li><a href="{{ $path }}admin/quanly">Quan ly</a></li>
                 </ul>
             </li>
             <li class="li-user">
-                <a href="login">user</a>
+                <a href="{{ $path }}login">user</a>
                 <ul class="ul-user">
-                    <li><a href="/user/profile">Profile user</a></li>
-                    <li><a href="">Phong da book</a></li>
+                    <li><a href="{{ $path }}user/profile">Profile user</a></li>
+                    <li><a href="{{ $path }}user/phong_da_book">Phong da book</a></li>
                 </ul>
             </li>
         </ul>
