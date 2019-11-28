@@ -1,6 +1,7 @@
 @extends('master')
 @section('content')
-     <center><h1 style="background-color:#ed2553;border-radius:50px;font-family: 'Baloo Bhai', cursive;box-shadow:5px 5px 9px blue;text-shadow:2px 2px#000;display:inline-block; margin-top: 50px;">ADMIN</h1></center><br>
+<div style="background: linear-gradient(to bottom,#9198e5,#FFF);">
+<center><h1 style="background-color:#ed2553;border-radius:50px;font-family: 'Baloo Bhai', cursive;box-shadow:5px 5px 9px blue;text-shadow:2px 2px#000;display:inline-block; margin-top: 50px;">ADMIN</h1></center><br>
       <div class="container-fluid" style="margin-top: 50px;">
         <div class="navbar-header">
          {{--  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> --}}
@@ -47,4 +48,5 @@
           </div>
         </div>
     </div>
+</div>
 @endsection

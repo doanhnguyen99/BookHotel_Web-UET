@@ -1,6 +1,6 @@
 @extends('user.profileuser')
 @section('option')
-<div class="row" style="display: block;">
+<div class="row" style="display: block;margin-top:8vh">
      <form action="edit_profile_user" class="form-group" method="post" enctype="multipart/form-data">
       @csrf
        <div class="col-sm-6">
