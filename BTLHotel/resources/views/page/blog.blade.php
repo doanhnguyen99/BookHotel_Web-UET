@@ -10,7 +10,7 @@
     </div>
     <div class="container" style="margin-top: 100px;">
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-8" style="margin-bottom:30px;">
                 <div class="container" style="margin-bottom: -30px">
                     <div class="row">
                         <div class="col-md-6">
@@ -58,24 +58,25 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div>
-                    <ul class="pagination">
-                        <li>&gt;</li>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                        <li>4</li>
-                        <li>5</li>
-                        <li>&lt;</li>
-                    </ul>
-                </div>
+                    <div style="height: 77px;text-align: center;">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>  
             </div>
             <div class="col-lg-4">
                 <div class="container">
                     <form>
                         <input type="text" placeholder="Type a keyword and hit enter" /><img src="source/image/icons/search.svg"></img>
                     </form>
+
                     <div>
                         <h3>Categories</h3>
                         <ul class="categories">
@@ -85,7 +86,9 @@
                             <li>Family<span>6</span></li>
                         </ul>
                     </div>
+
                     <h3 style="margin-bottom: 40px;">Popular artiles</h3>
+
                     <div class="popular-blog">
                         <div><img class="img-title" src="source/image/blog/image_1.jpg"/></div>
                         <div>
