@@ -39,10 +39,11 @@ body {
 }
 
 .meta-chart {
-    position: relative;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
     width: 111px;
     height: 112px;
-    transform: translate(0px, -240px);
     background-color: #fb929e;
 }
 

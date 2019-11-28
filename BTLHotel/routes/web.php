@@ -4,7 +4,7 @@ Route::get('index','publicPage@index');
 Route::get('/about','publicPage@about');
 Route::get('/login','publicPage@login')->name('login');
 Route::get('/register','publicPage@register');
-Route::get('/blog','publicPage@blog');
+Route::get('/blog','UserController@showBlog');
 Route::get('/room','publicPage@room');
 //route admin
 Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){

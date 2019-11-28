@@ -12,6 +12,7 @@ use App\Booking;
 use App\Feedback;
 use App\Room;
 use App\RoomType;
+use App\Blog;
 use Illuminate\Routing\UrlGenerator;
 
 class UserController extends Controller
@@ -114,5 +115,28 @@ class UserController extends Controller
         $booked->delete();
         return redirect('user/phong_da_book');
     }
+    
+    public function showBlog(Request $request)
+    {
+        if( isset(  $_GET['keyword']) ){
+            $blog1=DB::table('blog')->select('title','id')->get();
 
+            $kq = array();
+
+            foreach($blog1 as $value){;
+                if(strpos( strtolower($value->title) , strtolower($_GET['keyword']) ) ){
+                    array_push($kq, $value->id);
+                }
+            }
+            if(sizeof($kq)==0)  $blog = Blog::where('id',0)->paginate(1);
+            else if(sizeof($kq)==1)  $blog = Blog::where('id', $kq[0])->paginate(4);
+            else if(sizeof($kq)==2)  $blog = Blog::where('id', $kq[0])->orwhere('id', $kq[1])->paginate(4);
+            return view('page.blogtest',['blog'=>$blog]);
+        }else{
+            $blog=Blog::paginate(4);
+            return view('page.blogtest',['blog'=>$blog]);
+        }
+        
+        
+    }
 }
