@@ -1,6 +1,13 @@
 
 @extends('master')
 @section('content')
+<div class="blog-background" style="background-image: url('source/image/bg_3.jpg');">
+        <div class="blog">
+            <h1>Room</h1>
+            <a href="#">HOME</a>
+            <a href="#">ROOM</a>
+        </div>
+    </div>
 <div class="container" style="margin-top: 50px;">
             <div class="row">
                 <div class="col-md-6" style="margin-bottom: 50px;">

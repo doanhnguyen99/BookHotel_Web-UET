@@ -1,4 +1,4 @@
-@extends('master')
+@extends('loginBase')
 @section('content')
 <div class="box">
         <div class="box-in-box">
