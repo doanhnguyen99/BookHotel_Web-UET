@@ -1,5 +1,20 @@
 @extends('master')
 @section('content')
+  <!-- header -->
+  <div class="header">
+        <div class="h-left"></div>
+        <div class="h-right owl-carousel" style="z-/: unset;">
+            <div class="owl-items owl-item-1 "></div>
+            <div class="owl-items owl-item-2 "></div>
+            <div class="owl-items owl-item-3 "></div>
+            <div class="owl-items owl-item-4 "></div>
+        </div>
+        <div class="h-contain-text">
+            <h2>Welcome to IslaGrande Hotel</h2>
+            <h1>A Perfect Place To Stay</h1>
+        </div>
+    </div>
+    
         <!-- Calendar Book -->
 
     <div class="component-1">
