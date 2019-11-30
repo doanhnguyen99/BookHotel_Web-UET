@@ -118,11 +118,14 @@ class UserController extends Controller
     
     public function showBlog(Request $request)
     {
+        // lấy dữ liệu bài viết random
+        $random=array(rand(1,3),rand(4,7),rand(8,10));
+        $blogRandom = Blog::where('id', $random[0])->orwhere('id', $random[1])->orwhere('id', $random[2])->get();
+
+        // công việc tìm kiếm
         if( isset(  $_GET['keyword']) ){
             $blog1=DB::table('blog')->select('title','id')->get();
-
             $kq = array();
-
             foreach($blog1 as $value){;
                 if(strpos( strtolower($value->title) , strtolower($_GET['keyword']) ) ){
                     array_push($kq, $value->id);
@@ -130,11 +133,18 @@ class UserController extends Controller
             }
             if(sizeof($kq)==0)  $blog = Blog::where('id',0)->paginate(1);
             else if(sizeof($kq)==1)  $blog = Blog::where('id', $kq[0])->paginate(4);
-            else if(sizeof($kq)==2)  $blog = Blog::where('id', $kq[0])->orwhere('id', $kq[1])->paginate(4);
-            return view('page.blogtest',['blog'=>$blog]);
-        }else{
+            else $blog = Blog::where('id', $kq[0])->orwhere('id', $kq[1])->paginate(4);
+            return view('page.blogtest',['blog'=>$blog,'blogRandom'=>$blogRandom,'search'=>'search']);
+        }else
+        //công việc đọc 1 bài viết
+        if( isset(  $_GET['id']) ){
+            $blog = Blog::where('id',$_GET['id'])->paginate(1);
+            return view('page.blogtest',['blog'=>$blog,'blogRandom'=>$blogRandom]);
+        }
+        //công việc xem tổng quát các bài viết qua phân trang
+        else{
             $blog=Blog::paginate(4);
-            return view('page.blogtest',['blog'=>$blog]);
+            return view('page.blogtest',['blog'=>$blog,'blogRandom'=>$blogRandom]);
         }
         
         

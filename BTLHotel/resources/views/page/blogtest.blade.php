@@ -9,74 +9,93 @@
     </div>
     <div class="container" style="margin-top: 100px;">
         <div class="row">
+            <!-- cột trái -->
             <div class="col-lg-8" style="margin-bottom:30px;">
                 <div class="container" style="margin-bottom: -30px" id="showResult">
                     <div class="row" >
-
-                    @foreach ($blog as $value)   
-                            <div class="col-md-6" style="position:relative;">
-                                <a href="#">
-                                    <div class="blog-background" style="
-                                    background-image: url({{$value->image}});
-                                    height: 275px; 
-                                    background-size: cover;
-                                    background-position: center;
-                                    position:relative;">
-                                        <div class="meta-chart">
-                                            <div>{{$value->date}}</div>
-                                            <div>{{$value->author}}</div>
-                                            <div><img src="source/image/icons/message.svg" />3</div>
-                                        </div>  
-                                    </div>
-                                </a>
-                                <a href="#">
-                                <div>
-                                    <h3 class="heading">{{$value->title}}</h3>
+                    <!-- hiện kết quả tìm kiếm -->
+                    @if (isset($search) && sizeof($blog) == 0)
+                        <h4>Không có bài viết nào tìm được</h4>
+                    @endif
+                    <!-- khi có 1 bài viết -->
+                    @if (sizeof($blog) == 1 && !isset($search))
+                        @foreach ($blog as $value)  
+                                <div class="col-md-12">
+                                    <h2>{{$value->title}}</h2>
+                                    <b>{{$value->date}}</b>                                    
+                                    <p>{{$value->text1}}</p>
+                                    <img src="{{$value->image}}" alt="image" style="width: 100%;">
+                                    <p>{{$value->text2}}</p>
+                                    <b>{{$value->author}}</b>                           
                                 </div>   
-                                </a>                                                            
-                            </div>      
-                    @endforeach                
+                        @endforeach      
+                    @endif
+                    @if (sizeof($blog) > 1)
+                        @foreach ($blog as $value)   
+                                <div class="col-md-6">
+                                    <a href="http://localhost:8000/blog?id={{$value->id}}">
+                                        <div class="blog-background" style="
+                                        background-image: url({{$value->image}});
+                                        height: 275px; 
+                                        background-size: cover;
+                                        background-position: center;
+                                        position:relative;">
+                                            <div class="meta-chart">
+                                                <div>{{$value->date}}</div>
+                                                <div>{{$value->author}}</div>
+                                            </div>  
+                                        </div>
+                                    </a>
+                                    <a href="http://localhost:8000/blog?id={{$value->id}}">
+                                    <div>
+                                        <h3 class="heading">{{$value->title}}</h3>
+                                    </div>   
+                                    </a>                                                            
+                                </div>      
+                        @endforeach        
+                    @endif               
                     </div>
+
+                    <!-- phân trang -->
                     <div style="height: 77px;text-align: center;">
                         {!!$blog->links()!!}
                     </div>
                 </div>  
             </div>
+
+            <!-- cột phải -->
             <div class="col-lg-4">
                 <div class="container">
+
+                    <!-- search -->
                     <form action="" method="get">
                         <input id="searchblog" name="keyword" type="text" placeholder="Type a keyword and hit enter" required/>
                         <button type="submit">
                             <img src="source/image/icons/search.svg"></img>
                         </button>
                     </form>
-                            
-                   
 
-                    <div>
-                        <h3>Categories</h3>
-                        <ul class="categories">
-                            <li>Family<span>1</span></li><hr/>
-                            <li>Criminal<span>4</span></li><hr/>
-                            <li>Business<span>5</span></li><hr/>
-                            <li>Family<span>6</span></li>
-                        </ul>
-                    </div>
-
-                    <h3 style="margin-bottom: 40px;">Popular artiles</h3>
-
-                    <div class="popular-blog">
-                        <div><img class="img-title" src="source/image/blog/image_1.jpg"/></div>
-                        <div>
-                            <span>Even the all-powerful Pointing has no control about the blind texts<br/></span>
-                            <div class="infor-blog">
-                                <img src="source/image/icons/calendar.svg" /><a href="#">Oct. 04. 2018</a>
-                                <img src="source/image/icons/user.svg" /><a href="#">Dave lewis</a>
-                                <img src="source/image/icons/message.svg" /><a href="#">5</a>
+                    <!-- random article -->
+                    <h3 style="margin-bottom: 40px;">Random artiles</h3>
+                    @foreach ($blogRandom as $value)   
+                        <div class="popular-blog">
+                            <div>
+                                <a href="http://localhost:8000/blog?id={{$value->id}}">
+                                    <img class="img-title" src="{{$value->image}}"/>
+                                </a>
                             </div>
-                        </div>
-                    </div>
-                   
+                            <div>
+                                <a href="http://localhost:8000/blog?id={{$value->id}}">
+                                    <span>{{$value->title}}<br/></span>
+                                </a>                                
+                                <div class="infor-blog">
+                                    <img src="source/image/icons/calendar.svg" />{{$value->date}}
+                                    <img src="source/image/icons/user.svg" />{{$value->author}}
+                                </div>
+                            </div>
+                        </div>          
+                    @endforeach        
+              
                 </div>
             </div>
         </div>
