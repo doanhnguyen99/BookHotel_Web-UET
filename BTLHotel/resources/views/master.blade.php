@@ -71,7 +71,7 @@
     <script src="{{ $path }}js/login.js"></script>
     <script src="{{ $path }}library/boostrap/jquery-3.3.1.slim.min.js"></script>
     <script src="{{ $path }}library/boostrap/popper.min.js"></script>
-    {{-- <script src="library/boostrap/bootstrap.min.js"></script> --}}
+    {{-- <script src="{{ $path }}library/boostrap/bootstrap.min.js"></script> --}}
     <script src="{{ $path }}library/boostrap/bootstrap.js"></script>
 </body>
 </html>

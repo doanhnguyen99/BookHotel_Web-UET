@@ -17,6 +17,40 @@ use Illuminate\Routing\UrlGenerator;
 
 class UserController extends Controller
 {
+    public function setPassword(Request $request)
+    {
+        $email=$request['email'];
+        $name=$request['name'];
+        $phone=$request['phone'];
+
+        $data=DB::table('account')->where('email',$email)->first();
+        $data = json_decode(json_encode($data),true);
+        
+        if($data['name']==$name && $data['phone']==$phone){
+            return view('user.setpassword')->with('email',$email);
+        }else{
+            $alert = "Not have account suitable";
+            return view('page.login')->with('alert',$alert);
+        }        
+    }
+
+    public function putPassword(Request $request)
+    {
+        $email=$request['email'];
+        $password=$request['password'];
+
+        $data = DB::table('account')
+            ->where('email', $email)
+            ->update(['password' => $password]);
+        
+        $data = json_decode(json_encode($data),true);
+        
+        if($data==1) $alert = "Change password success !!!";
+        else $alert = "Change password not success !!!";
+
+        return view('page.login')->with('alert',$alert);       
+    }
+    
     public function uploadFile($file)
     {
         $path='';
