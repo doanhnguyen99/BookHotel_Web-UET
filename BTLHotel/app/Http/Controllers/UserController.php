@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Collection;
 use DB;
 use Session;
 use stdClass;
+use Redirect;
 use App\Account;
 use App\Booking;
 use App\Feedback;
@@ -25,13 +26,13 @@ class UserController extends Controller
 
         $data=DB::table('account')->where('email',$email)->first();
         $data = json_decode(json_encode($data),true);
-        
+
         if($data['name']==$name && $data['phone']==$phone){
             return view('user.setpassword')->with('email',$email);
         }else{
             $alert = "Not have account suitable";
             return view('page.login')->with('alert',$alert);
-        }        
+        }
     }
 
     public function putPassword(Request $request)
@@ -42,15 +43,15 @@ class UserController extends Controller
         $data = DB::table('account')
             ->where('email', $email)
             ->update(['password' => $password]);
-        
+
         $data = json_decode(json_encode($data),true);
-        
+
         if($data==1) $alert = "Change password success !!!";
         else $alert = "Change password not success !!!";
 
-        return view('page.login')->with('alert',$alert);       
+        return view('page.login')->with('alert',$alert);
     }
-    
+
     public function uploadFile($file)
     {
         $path='';
@@ -93,7 +94,7 @@ class UserController extends Controller
                     Session::put('login','user');
                     Session::put('id_ac',$data['id_ac']);
 
-                    return redirect('user/profile');
+                    return Redirect::to(Session::get('old_url'));
             }
             else
             {
@@ -149,7 +150,7 @@ class UserController extends Controller
         $booked->delete();
         return redirect('user/phong_da_book');
     }
-    
+
     public function showBlog(Request $request)
     {
         // lấy dữ liệu bài viết random
@@ -180,7 +181,7 @@ class UserController extends Controller
             $blog=Blog::paginate(4);
             return view('page.blogtest',['blog'=>$blog,'blogRandom'=>$blogRandom]);
         }
-        
-        
+
     }
+
 }

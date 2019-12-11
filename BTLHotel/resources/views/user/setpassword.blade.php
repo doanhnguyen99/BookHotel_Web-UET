@@ -3,7 +3,7 @@
 <div class="box">
         <div class="box-in-box">
             <!-- quên mật khẩu -->
-            <form action="/setpassword" id="formforgetpass" method="post" onsubmit="return validate()">
+            <form action="setpassword" id="formforgetpass" method="post" onsubmit="return validate()">
                 {{csrf_field()}}
                 {{ method_field('PUT') }}
                 <h2>Reset Password</h2>
@@ -32,7 +32,7 @@
                 alert("password not match");
                 return false;
             }
-             
+
             return true;
          }
       </script>

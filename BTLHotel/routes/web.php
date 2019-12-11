@@ -7,6 +7,8 @@ Route::get('/login','publicPage@login')->name('login');
 Route::get('/register','publicPage@register');
 Route::get('/blog','UserController@showBlog');
 Route::get('/room','publicPage@room');
+Route::get('/single_room/{id_room_type}','publicPage@singleRoom');
+
 
 //route admin
 Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
@@ -37,3 +39,6 @@ Route::post('booking', 'publicPage@postbooking')->name('booking');
 Route::post('feedback', 'publicPage@postFeedback')->name('feedback');
 Route::post('setpassword','UserController@setPassword')->name('setpassword');
 Route::put('setpassword','UserController@putPassword')->name('postpassword');
+Route::get('/auth/{provider}','SocialAuthController@redirectToProvider');
+Route::get('/auth/{provider}/callback','SocialAuthController@handleProviderCallback');
+Route::get('/qr-code','QrCodeController@getQrCode');

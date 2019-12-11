@@ -2,7 +2,7 @@
 @section('content')
 <div class="box">
         <div class="box-in-box">
-                @if(isset($alert)) 
+                @if(isset($alert))
                     <h3 style="position:absolute; top:70px;">{{$alert}}</h3>
                 @endif
             <!-- đăng nhập -->
@@ -33,6 +33,12 @@
                     <span>Don't have account? </span>
                     <a href="register">Sign Up</a>
                 </div>
+                <div>
+                    <a href="{{URL::to('auth/google')}}">
+                        <i class="fa fa-google"></i>
+                        Đăng nhập bằng Google
+                    </a>
+                </div>
             </form>
 
             <!-- quên mật khẩu -->
@@ -55,5 +61,5 @@
             </form>
         </div>
     </div>
-    
+
 @endsection
