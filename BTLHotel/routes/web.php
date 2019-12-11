@@ -26,7 +26,7 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 });
 //route user
 Route::group(['prefix'=>'user','middleware'=>'userLogin'],function(){
-    Route::get('/booking_form','publicPage@booking');
+    Route::get('/booking_form/{id_room_type?}','publicPage@booking');
     Route::get('/profile','UserController@showProfileUser');
     Route::get('/phong_da_book','UserController@showPhongDaBook');
     Route::get('/delete_booked/{id}','UserController@deleteBooked')->name('delete_booked');

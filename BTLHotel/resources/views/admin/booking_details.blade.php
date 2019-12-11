@@ -4,7 +4,7 @@
     <thead>
       <tr>
         <th>Stt</th>
-        <th>Id ac</th>
+        <th>Tên người đăt</th>
         <th>room_type</th>
         <th>room_no</th>
         <th>so_nguoi</th>

@@ -48,7 +48,12 @@
                                     <select class="form-control" name="room_type" style="height: 60px; padding-top: 20px; padding-left: 15px;border-radius: 30px; ">
                                         <option selected value hidden>Select Room Type</option>
                                         @foreach ($room_type as $value)
-                                            <option value={{$value['id_room_type']}}>{{$value['room_type']}}</option>
+                                            <option value={{$value['id_room_type']}}
+                                            @php
+                                                if ($value['id_room_type']==$id_selected) {
+                                                    echo 'selected';
+                                                }
+                                            @endphp>{{$value['room_type']}}</option>
                                         @endforeach
                                     </select>
                                 </div>

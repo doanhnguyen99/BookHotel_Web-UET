@@ -22,13 +22,14 @@ class publicPage extends Controller
 
     	return view('page.login');
 	}
-	public function booking(Request $request) {
+	public function booking(Request $request,$id_room_type=null) {
         if (Session::has('login')) {
             $id_ac=$request->session()->get('id_ac');
         }
         $account = Account::find($id_ac);
         $room_type = RoomType::All();
-    	return view('page.booking')->with(['account'=>$account,'room_type'=>$room_type]);
+        $id_selected = $id_room_type;
+    	return view('page.booking')->with(['account'=>$account,'room_type'=>$room_type,'id_selected'=>$id_selected]);
 	}
 	public function register() {
     	return view('page.register');

@@ -20,7 +20,7 @@
                         </div>
                         <div class="price">
                             <p>Giá từ</p><span>${{$element['price']}}/đêm</span>
-                           <a href="booking_form" class="btn btn-primary" style="float: right;">Đặt phòng ngay</a>
+                           <a href="user/booking_form/{{$element['id_room_type']}}" class="btn btn-primary" style="float: right;">Đặt phòng ngay</a>
                         </div>
                     </div>
                  @endforeach
