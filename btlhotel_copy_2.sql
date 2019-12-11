@@ -22,8 +22,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `btlhotel_copy_2`
 --
-CREATE DATABASE IF NOT EXISTS `btlhotel_copy` DEFAULT CHARACTER SET utf8 COLLATE utf8_vietnamese_ci;
-USE `btlhotel_copy`;
+CREATE DATABASE IF NOT EXISTS `btlhotel_copy_2` DEFAULT CHARACTER SET utf8 COLLATE utf8_vietnamese_ci;
+USE `btlhotel_copy_2`;
 
 -- --------------------------------------------------------
 
