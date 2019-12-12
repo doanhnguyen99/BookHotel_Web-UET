@@ -28,10 +28,18 @@ class publicPage extends Controller
         if (Session::has('login')) {
             $id_ac=$request->session()->get('id_ac');
         }
+        
         $account = Account::find($id_ac);
         $room_type = RoomType::All();
-        $id_selected = $id_room_type;
-    	return view('page.booking')->with(['account'=>$account,'room_type'=>$room_type,'id_selected'=>$id_selected]);
+
+        
+        if( isset(  $_GET['room_type']) ){
+            $x = RoomType::where('room_type', $_GET['room_type'])->get();
+            return view('page.booking')->with(['account'=>$account,'room_type_selected'=>$_GET['room_type'],'id_room_type_selected'=>$x]);
+        }
+             else 
+            return view('page.booking')->with(['account'=>$account,'room_type'=>$room_type]);
+//---------------
 	}
 	public function register() {
     	return view('page.register');
@@ -72,7 +80,10 @@ class publicPage extends Controller
             return $path;
         }
     }
-    public function dangki(Request $req){
+    public function getregister() {
+        return view('page.register');
+    }
+    public function postdangki(Request $req){
         $path='';
         if ($req->hasFile('avatar')) {
             $file = $req->avatar; // lấy các giá trị của file về
@@ -123,6 +134,7 @@ class publicPage extends Controller
         $room_type = $request->input('room_type');
         $check_in_date = $request->input('check_in_date');
         $check_out_date = $request->input('check_out_date');
+
         $room_no_of_type = Booking::where('room_type','=',$room_type)->where('check_out_date','>',$time_now)->where('check_out_date','<',$check_in_date)->first();
         $room_no_of_type = json_decode(json_encode($room_no_of_type),1);//chuyen ve dang array
 
@@ -147,6 +159,7 @@ class publicPage extends Controller
 
 
         $booking = new Booking();
+
         $booking->id_ac = $id_ac;
         $booking->name = $request->input('name');
         $booking->phone = $request->input('phone');
@@ -169,6 +182,7 @@ class publicPage extends Controller
 
         session(['cost_id' => $booking->id_bk]);
         return view('page.thanh_toan')->with(['amount'=>$amount]);
+
     }
     public function postFeedback(Request $request)
     {
