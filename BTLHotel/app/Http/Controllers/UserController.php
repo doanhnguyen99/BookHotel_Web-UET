@@ -62,8 +62,8 @@ class UserController extends Controller
             return back();
         }
         else{
-            $path = $file->storeAs('/upload',$file->getClientOriginalName());// di chuyển file đến mục storage/app/upload
-            // $path = str_replace("public","",url('').'storage/app/'.$path);
+            $path = $file->storeAs('upload',$file->getClientOriginalName());// di chuyển file đến mục storage/app/upload
+            $path = str_replace("public","",url('').'storage/app/'.$path);
             return $path;
         }
     }
@@ -120,9 +120,7 @@ class UserController extends Controller
         $path=$request->input('old_avatar');
         if ($request->hasFile('avatar')) {
             $file = $request->avatar; // lấy các giá trị của file về
-            
-            $path = '/'.$this->uploadFile($file);
-            $file->move('upload',$file->getClientOriginalName());
+            $path = $this->uploadFile($file);
         }
 
         $account = Account::find($request->input('id_ac'));

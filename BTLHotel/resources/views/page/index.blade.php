@@ -15,7 +15,6 @@
         </div>
     </div>
 
-
         <!-- Calendar Book -->
 
     <div class="component-1">
@@ -145,7 +144,6 @@
                                 <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                                 </div>
                         </div>
-
                         <div class="carousel-item">
                                 <div class="row item">
                                        @for ($i = 3; $i < 6; $i++)
