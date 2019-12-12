@@ -1,6 +1,7 @@
 
 @extends('master')
 @section('content')
+
 <div class="blog-background" style="background-image: url('/source/image/3.jpg');">
         <div class="blog">
             <h1>Room</h1>
@@ -20,7 +21,8 @@
                         </div>
                         <div class="price">
                             <p>Giá từ</p><span>${{$element['price']}}/đêm</span>
-                           <a href="/user/booking_form?room_type={{$element['room_type']}}" class="btn btn-primary" style="float: right;">Đặt phòng ngay</a>
+
+                           <a href="user/booking_form/{{$element['id_room_type']}}" class="btn btn-primary" style="float: right;">Đặt phòng ngay</a>
                         </div>
                     </div>
                  @endforeach

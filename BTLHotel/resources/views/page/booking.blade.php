@@ -20,8 +20,18 @@
                 <div class="formheader text-xs-center" style="color: white;">
                     <h1>Your Booking Form</h1>
                 </div>
-                @if (isset($thongbao))
-                   <div class="alert alert-danger">{{$thongbao}}</div> 
+                @if(Session::has('thanhcong'))
+                    <div class="alert alert-success">{{Session::get('thanhcong')}}</div>
+                @endif
+                @if(Session::has('thatbai'))
+                    <div class="alert alert-warning">{{Session::get('thatbai')}}</div>
+                @endif
+                @if(Session::has('success'))
+                    <div class="alert alert-success">{{Session::get('success')}}</div>
+                @endif
+                @if(Session::has('errors'))
+                    <div class="alert alert-danger">{{Session::get('errors')}}</div>
+
                 @endif
                 <form action="{{route('booking')}}" class="form-group" method="POST">
                      {{csrf_field()}}
@@ -53,15 +63,16 @@
                                     <span style="position: absolute;padding-left: 20px; color: orange;">Room Type</span>
                                     <select class="form-control" name="room_type" style="height: 60px; padding-top: 20px; padding-left: 15px;border-radius: 30px; ">
                                         <option selected value hidden>Select Room Type</option>
-                                        @if (isset($room_type_selected))
-                                            <option value={{$id_room_type_selected[0]['id_room_type']}} selected>{{$room_type_selected}}</option>
-                                        @endif
-                                        @if (!isset($room_type_selected))
-                                            @foreach ($room_type as $value)
-                                                <option value={{$value['id_room_type']}}>{{$value['room_type']}}</option>
-                                            @endforeach
-                                        @endif
-                                       
+
+                                        @foreach ($room_type as $value)
+                                            <option value={{$value['id_room_type']}}
+                                            @php
+                                                if ($value['id_room_type']==$id_selected) {
+                                                    echo 'selected';
+                                                }
+                                            @endphp>{{$value['room_type']}}</option>
+                                        @endforeach
+
                                     </select>
                                 </div>
                             </div>
