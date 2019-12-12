@@ -17,6 +17,18 @@
                 <div class="formheader text-xs-center" style="color: white;">
                     <h1>Your Booking Form</h1>
                 </div>
+                @if(Session::has('thanhcong'))
+                    <div class="alert alert-success">{{Session::get('thanhcong')}}</div>
+                @endif
+                @if(Session::has('thatbai'))
+                    <div class="alert alert-warning">{{Session::get('thatbai')}}</div>
+                @endif
+                @if(Session::has('success'))
+                    <div class="alert alert-success">{{Session::get('success')}}</div>
+                @endif
+                @if(Session::has('errors'))
+                    <div class="alert alert-danger">{{Session::get('errors')}}</div>
+                @endif
                 <form action="{{route('booking')}}" class="form-group" method="POST">
                      {{csrf_field()}}
                         <div class="form-group">

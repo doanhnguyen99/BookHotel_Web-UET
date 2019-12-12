@@ -1,6 +1,6 @@
 
     <!-- navbar -->
-    <nav style="display: flex;z-index: 1001;">
+    <nav style="display: flex;">
         <a href="/index">
             <div class="logo">
                 <h4>IslaGrande</h4>

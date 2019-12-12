@@ -145,8 +145,11 @@ class UserController extends Controller
     public function deleteBooked($id)
     {
         $booked = Booking::find($id);
-        $room = Room::where('room_no','=',$booked->room_no)
-                    ->update(['is_rental'=>0]);
+        // $room = Room::where('room_no','=',$booked->room_no)
+        //             ->update(['is_rental'=>0]);
+        $room = Room::where('room_no','=',$booked->room_no)->first();
+        $room->so_booking = $room->so_booking-1;
+        $room->save();
         $booked->delete();
         return redirect('user/phong_da_book');
     }

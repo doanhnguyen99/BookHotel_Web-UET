@@ -14,33 +14,34 @@
             <h1>A Perfect Place To Stay</h1>
         </div>
     </div>
-    
+
         <!-- Calendar Book -->
 
     <div class="component-1">
             <div class="container">
                     <div class="row sub-1">
-                            <div class="col-lg-1 title"><h3 class="text-center text-danger">Reserve A Perfect Room</h3></div>
+                        <form action="{{ route('suggest_room') }}" method="post">
+                            {{csrf_field()}}
+                        </form>
+                            <div class="col-lg-1 title"><h3 class="text-center text-danger"></h3></div>
                             <div class="col-lg-2">
                                     <label  for="#">Check-in Date</label>
-                                    <input class="form-control" type="date" placeholder="Check-in date">
+                                    <input name="check_in_date" class="form-control" type="date" placeholder="Check-in date">
                             </div>
 
                             <div class="col-lg-2">
                                    <label for="#">Check-out Date</label>
-                                    <input class="form-control" type="date" placeholder="Check-out date">
+                                    <input name="check_out_date" class="form-control" type="date" placeholder="Check-out date">
                             </div>
 
                             <!-- *** -->
                             <div class="col-lg-2">
                                     <label for="#">Room Types</label>
-                                    <select name="type-room" class="form-control">
-                                            <option value="suite">Suite</option>
-                                            <option value="family-room">Family Room</option>
-                                            <option value="deluxe-room">Deluxe Room</option>
-                                            <option value="classic-room">Classic Room</option>
-                                            <option value="superior-room">Superior Room</option>
-                                            <option value="luxury-room">Luxury Room</option>
+                                    <select name="room_type_id" class="form-control">
+                                            @foreach ($room_type as $element)
+                                             <option value="{{$element['id_room_type']}}">{{$element['room_type']}}</option>
+                                            @endforeach
+
                                     </select>
                             </div>
 
@@ -69,7 +70,7 @@
                             </div>
 
                             <div class="col-lg-1">
-                                <a href="room" class="btn custom" style="width: 100%; padding-left: 5px;">Reverse</a>
+                                <a href="room" class="btn custom" style="width: 100%; padding-left: 5px;">Gợi ý</a>
                             </div>
 
                     </div>
@@ -105,14 +106,15 @@
                         <ol class="carousel-indicators">
                                 <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
                                 <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                                <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
                         </ol>
                         <div class="carousel-inner">
                                 <div class="carousel-item active">
                                         <div class="row item">
+                                            @for ($i = 0; $i < 3; $i++)
+
                                                 <!-- Column-1 -->
                                             <div class="col-sm-4">
-                                                <div class="row-sm-6"><img src="source/image/1.jpg" alt="#"></div>
+                                                <div class="row-sm-6"><img src="{{$room_type[$i]['image_room']}}" alt="#"></div>
                                                 <div class="row-sm-1 custom-row">
                                                     <p class="rate">
                                                             <i class="fa fa-star"></i>
@@ -125,67 +127,17 @@
                                                 <div class="row-sm-1"><hr></div>
                                                 <div class="row">
                                                         <div class="col-5 col-md-4 set-color">Giá phòng: </div>
-                                                        <div class="col-2 col-md-5 set-color">$100/đêm</div>
+                                                        <div class="col-2 col-md-5 set-color">${{$room_type[$i]['price']}}/đêm</div>
                                                  </div>
                                                 <div class="row book-review">
                                                     <div class="col-sm-3"></div>
                                                     <div class="col-sm-4">
-                                                        <button type="button" class="btn btn-success set-size">Reverse a Room</button>
+                                                        <a class="btn btn-success set-size" href="user/booking_form/{{$room_type[$i]['id_room_type']}}">Đặt phòng</a>
 
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <!-- Column-2 -->
-                                            <div class="col-sm-4">
-                                                    <div class="row-sm-6"><img src="source/image/2.jpg" alt="#"></div>
-                                                    <div class="row-sm-1 custom-row">
-                                                        <p class="rate">
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                        </p>
-                                                    </div>
-                                                    <div class="row-sm-1"><hr></div>
-                                                    <div class="row">
-                                                            <div class="col-5 col-md-4 set-color">Giá phòng: </div>
-                                                            <div class="col-2 col-md-5 set-color">$200/đêm</div>
-                                                     </div>
-                                                    <div class="row book-review">
-                                                        <div class="col-sm-3"></div>
-                                                        <div class="col-sm-4">
-                                                                <button type="button" class="btn btn-success set-size">Reverse a Room</button>
-                                                        </div>
-                                                    </div>
-
-                                            </div>
-
-                                            <!-- Column-3 -->
-                                            <div class="col-sm-4">
-                                                    <div class="row-sm-6"><img src="source/image/3.jpg" alt="#"></div>
-                                                    <div class="row-sm-1 custom-row">
-                                                        <p class="rate">
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                        </p>
-                                                    </div>
-                                                    <div class="row-sm-1"><hr></div>
-                                                    <div class="row">
-                                                            <div class="col-5 col-md-4 set-color">Giá phòng: </div>
-                                                            <div class="col-2 col-md-5 set-color">$300/đêm</div>
-                                                     </div>
-                                                    <div class="row book-review">
-                                                        <div class="col-sm-3"></div>
-                                                        <div class="col-sm-4">
-                                                        <button type="button" class="btn btn-success set-size">Reverse a Room</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
+                                            @endfor
                                         </div>
                                 <div class="carousel-caption d-none d-md-block">
                                 <h5>First slide label</h5>
@@ -194,170 +146,39 @@
                         </div>
                         <div class="carousel-item">
                                 <div class="row item">
-                                        <!-- Column-1 -->
-                                    <div class="col-sm-4">
-                                        <div class="row-sm-6"><img src="source/image/4.jpg" alt="#"></div>
-                                        <div class="row-sm-1 custom-row">
-                                            <p class="rate">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                            </p>
-                                        </div>
-                                        <div class="row-sm-1"><hr></div>
-                                        <div class="row">
-                                                <div class="col-5 col-md-4 set-color">Giá phòng: </div>
-                                                <div class="col-2 col-md-5 set-color">$100/đêm</div>
-                                         </div>
-                                        <div class="row book-review">
-                                            <div class="col-sm-3"></div>
+                                       @for ($i = 3; $i < 6; $i++)
+
+                                                <!-- Column-1 -->
                                             <div class="col-sm-4">
-                                                <button type="button" class="btn btn-success set-size">Reverse a Room</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                <div class="row-sm-6"><img src="{{$room_type[$i]['image_room']}}" alt="#"></div>
+                                                <div class="row-sm-1 custom-row">
+                                                    <p class="rate">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                    </p>
+                                                </div>
+                                                <div class="row-sm-1"><hr></div>
+                                                <div class="row">
+                                                        <div class="col-5 col-md-4 set-color">Giá phòng: </div>
+                                                        <div class="col-2 col-md-5 set-color">${{$room_type[$i]['price']}}/đêm</div>
+                                                 </div>
+                                                <div class="row book-review">
+                                                    <div class="col-sm-3"></div>
+                                                    <div class="col-sm-4">
+                                                        <a class="btn btn-success set-size" href="user/booking_form/{{$room_type[$i]['id_room_type']}}">Đặt phòng</a>
 
-                                    <!-- Column-2 -->
-                                    <div class="col-sm-4">
-                                            <div class="row-sm-6"><img src="source/image/5.jpg" alt="#"></div>
-                                            <div class="row-sm-1 custom-row">
-                                                <p class="rate">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                </p>
-                                            </div>
-                                            <div class="row-sm-1"><hr></div>
-                                            <div class="row">
-                                                    <div class="col-5 col-md-4 set-color">Giá phòng: </div>
-                                                    <div class="col-2 col-md-5 set-color">$200/đêm</div>
-                                             </div>
-                                            <div class="row book-review">
-                                                <div class="col-sm-3"></div>
-                                                <div class="col-sm-4">
-                                                        <button type="button" class="btn btn-success set-size">Reverse a Room</button>
+                                                    </div>
                                                 </div>
                                             </div>
-
-                                    </div>
-
-                                    <!-- Column-3 -->
-                                    <div class="col-sm-4">
-                                            <div class="row-sm-6"><img src="source/image/6.jpg" alt="#"></div>
-                                            <div class="row-sm-1 custom-row">
-                                                <p class="rate">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                </p>
-                                            </div>
-                                            <div class="row-sm-1"><hr></div>
-                                            <div class="row">
-                                                    <div class="col-5 col-md-4 set-color">Giá phòng: </div>
-                                                    <div class="col-2 col-md-5 set-color">$300/đêm</div>
-                                             </div>
-                                            <div class="row book-review">
-                                                <div class="col-sm-3"></div>
-                                                <div class="col-sm-4">
-                                                        <button type="button" class="btn btn-success set-size">Reverse a Room</button>
-                                                </div>
-                                            </div>
-                                    </div>
+                                            @endfor
 
                                     <div class="carousel-caption d-none d-md-block">
                                         <h5>Second slide label</h5>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                         </div>
-                                </div>
-                        </div>
-
-                        <div class="carousel-item">
-                                        <div class="row item">
-                                                        <!-- Column-1 -->
-                                                    <div class="col-sm-4">
-                                                        <div class="row-sm-6"><img src="source/image/7.jpg" alt="#"></div>
-                                                        <div class="row-sm-1 custom-row">
-                                                            <p class="rate">
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                            </p>
-                                                        </div>
-                                                        <div class="row-sm-1"><hr></div>
-                                                        <div class="row">
-                                                                <div class="col-5 col-md-4 set-color">Giá phòng: </div>
-                                                                <div class="col-2 col-md-5 set-color">$100/đêm</div>
-                                                         </div>
-                                                        <div class="row book-review">
-                                                            <div class="col-sm-3"></div>
-                                                            <div class="col-sm-4">
-                                                                <button type="button" class="btn btn-success set-size">Reverse a Room</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <!-- Column-2 -->
-                                                    <div class="col-sm-4">
-                                                            <div class="row-sm-6"><img src="source/image/8.jpg" alt="#"></div>
-                                                            <div class="row-sm-1 custom-row">
-                                                                <p class="rate">
-                                                                        <i class="fa fa-star"></i>
-                                                                        <i class="fa fa-star"></i>
-                                                                        <i class="fa fa-star"></i>
-                                                                        <i class="fa fa-star"></i>
-                                                                        <i class="fa fa-star"></i>
-                                                                </p>
-                                                            </div>
-                                                            <div class="row-sm-1"><hr></div>
-                                                            <div class="row">
-                                                                    <div class="col-5 col-md-4 set-color">Giá phòng: </div>
-                                                                    <div class="col-2 col-md-5 set-color">$200/đêm</div>
-                                                             </div>
-                                                            <div class="row book-review">
-                                                                <div class="col-sm-3"></div>
-                                                                <div class="col-sm-4">
-                                                                        <button type="button" class="btn btn-success set-size">Reverse a Room</button>
-                                                                </div>
-                                                            </div>
-
-                                                    </div>
-
-                                                    <!-- Column-3 -->
-                                                    <div class="col-sm-4">
-                                                            <div class="row-sm-6"><img src="source/image/9.jpg" alt="#"></div>
-                                                            <div class="row-sm-1 custom-row">
-                                                                <p class="rate">
-                                                                        <i class="fa fa-star"></i>
-                                                                        <i class="fa fa-star"></i>
-                                                                        <i class="fa fa-star"></i>
-                                                                        <i class="fa fa-star"></i>
-                                                                        <i class="fa fa-star"></i>
-                                                                </p>
-                                                            </div>
-                                                            <div class="row-sm-1"><hr></div>
-                                                            <div class="row">
-                                                                    <div class="col-5 col-md-4 set-color">Giá phòng: </div>
-                                                                    <div class="col-2 col-md-5 set-color">$300/đêm</div>
-                                                             </div>
-                                                            <div class="row book-review">
-                                                                <div class="col-sm-3"></div>
-                                                                <div class="col-sm-4">
-                                                                        <button type="button" class="btn btn-success set-size">Reverse a Room</button>
-                                                                </div>
-                                                            </div>
-                                                    </div>
-                                        </div>
-                                <div class="carousel-caption d-none d-md-block">
-                                        <h5>Third slide label</h5>
-                                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
                                 </div>
                         </div>
 
@@ -417,8 +238,8 @@
                                 <div class="">When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</div>
                                 <br>
                                 <div class="">
-                                        <a href="#" style="margin-left: 10px"><i class="fa fa-twitter fa-2x"></i></a>
-                                        <a href="#" style="margin-left: 10px"><i class="fa fa-facebook fa-2x"></i></a>
+                                        <a href="" style="margin-left: 10px"><i class="fa fa-twitter fa-2x"></i></a>
+                                        <a href="https://www.facebook.com/BTL-Hotel-103136754520187/?modal=admin_todo_tour" style="margin-left: 10px"><i class="fa fa-facebook fa-2x"></i></a>
                                         <a href="#" style="margin-left: 10px"><i class="fa fa-google-plus fa-2x"></i></a>
                                         <a href="#" style="margin-left: 10px"><i class="fa fa-instagram fa-2x"></i></a>
                                 </div>

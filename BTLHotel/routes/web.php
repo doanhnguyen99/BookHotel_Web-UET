@@ -42,3 +42,6 @@ Route::put('setpassword','UserController@putPassword')->name('postpassword');
 Route::get('/auth/{provider}','SocialAuthController@redirectToProvider');
 Route::get('/auth/{provider}/callback','SocialAuthController@handleProviderCallback');
 Route::get('/qr-code','QrCodeController@getQrCode');
+Route::get('/return-vnpay','publicPage@returnVNPay')->name('return-vnpay');
+Route::post('creat_pay','publicPage@creatPay')->name('creat_pay');
+Route::post('suggest_room','publicPage@suggestRoom')->name('suggest_room');
